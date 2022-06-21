@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1318606667206540036}
   m_Layer: 0
   m_Name: MovingObject
-  m_TagString: Untagged
+  m_TagString: Sliceable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

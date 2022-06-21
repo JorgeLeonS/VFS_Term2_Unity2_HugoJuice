@@ -47,8 +47,11 @@ public class Lighsaber : MonoBehaviour
     private Vector3 _triggerEnterBasePosition;
     private Vector3 _triggerExitTipPosition;
 
+    private ScoreSystem _scoreSystem;
+
     void Start()
     {
+        _scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         //Init mesh and triangles
         _meshParent.transform.position = Vector3.zero;
         _mesh = new Mesh();
@@ -157,11 +160,20 @@ public class Lighsaber : MonoBehaviour
             plane = plane.flipped;
         }
 
-        GameObject[] slices = Slicer.Slice(plane, other.gameObject);
-        Destroy(other.gameObject);
+        if(other.gameObject.tag == "Sliceable")
+        {
+            GameObject[] slices = Slicer.Slice(plane, other.gameObject);
+            Destroy(other.gameObject);
+            _scoreSystem.ScoreCounter++;
 
-        Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
-        Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
-        rigidbody.AddForce(newNormal, ForceMode.Impulse);
+            Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
+            Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
+            rigidbody.AddForce(newNormal, ForceMode.Impulse);
+
+            foreach (var slice in slices)
+            {
+                Destroy(slice, 2f);
+            }
+        }
     }
 }

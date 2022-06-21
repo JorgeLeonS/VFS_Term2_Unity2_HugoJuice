@@ -84,9 +84,9 @@ namespace Assets.Scripts
         /// <param name="mesh"></param>
         private static void SetupCollidersAndRigidBodys(ref GameObject gameObject, Mesh mesh, bool useGravity)
         {                     
-            MeshCollider meshCollider = gameObject.AddComponent<MeshCollider>();
-            meshCollider.sharedMesh = mesh;
-            meshCollider.convex = true;
+            //MeshCollider meshCollider = gameObject.AddComponent<MeshCollider>();
+            //meshCollider.sharedMesh = mesh;
+            //meshCollider.convex = true;
 
             var rb = gameObject.AddComponent<Rigidbody>();
             rb.useGravity = useGravity;
