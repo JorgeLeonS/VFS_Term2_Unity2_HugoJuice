@@ -1,4 +1,5 @@
-﻿using Assets.Scripts;
+﻿// Script from: https://www.youtube.com/watch?v=BVCNDUcnE1o&t=130s
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

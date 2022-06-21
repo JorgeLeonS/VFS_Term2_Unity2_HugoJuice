@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿// Script from: https://www.youtube.com/watch?v=BVCNDUcnE1o&t=130s
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.AccessControl;
 using UnityEngine;
