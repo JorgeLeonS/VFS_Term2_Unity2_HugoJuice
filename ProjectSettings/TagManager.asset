@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Slicer
   - Sliceable
+  - SliceableL
+  - SliceableR
+  - SlicerL
+  - SlicerR
   layers:
   - Default
   - TransparentFX
