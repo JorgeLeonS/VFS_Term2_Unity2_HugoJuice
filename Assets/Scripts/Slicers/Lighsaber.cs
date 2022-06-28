@@ -161,20 +161,29 @@ public class Lighsaber : MonoBehaviour
             plane = plane.flipped;
         }
 
-        if(other.gameObject.tag == "Sliceable")
+        if(gameObject.tag == "SlicerR" && other.gameObject.tag == "SliceableR" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
         {
-            GameObject[] slices = Slicer.Slice(plane, other.gameObject);
-            Destroy(other.gameObject);
-            _scoreSystem.ScoreCounter++;
+            Slice(plane, other, transformedNormal);
+        }
+        else if (gameObject.tag == "SlicerL" && other.gameObject.tag == "SliceableL" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
+        {
+            Slice(plane, other, transformedNormal);
+        }
+    }
 
-            Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
-            Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
-            rigidbody.AddForce(newNormal, ForceMode.Impulse);
+    private void Slice(Plane plane, Collider other, Vector3 transformedNormal)
+    {
+        GameObject[] slices = Slicer.Slice(plane, other.gameObject);
+        Destroy(other.gameObject);
+        _scoreSystem.ScoreCounter++;
 
-            foreach (var slice in slices)
-            {
-                Destroy(slice, 2f);
-            }
+        Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
+        Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
+        rigidbody.AddForce(newNormal, ForceMode.Impulse);
+
+        foreach (var slice in slices)
+        {
+            Destroy(slice, 2f);
         }
     }
 }

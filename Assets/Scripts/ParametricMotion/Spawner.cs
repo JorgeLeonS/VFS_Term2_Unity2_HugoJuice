@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -6,7 +7,8 @@ public class Spawner : MonoBehaviour
 
     public TimeType UseTimeType;
     public Clock Clock;
-    public MovingNote NotePrefab;
+    public MovingNote NotePrefabR;
+    public MovingNote NotePrefabL;
 
     public int BeatSpawnInterval;
 
@@ -14,6 +16,10 @@ public class Spawner : MonoBehaviour
     public float NoteSpawnSecondsAheadOfArrivalBeat = 1;
 
     public int nextSpawnBeat;
+
+    bool doubleNote = false;
+
+    public List<Vector3> spawnPos = new List<Vector3>();
 
     private void Awake()
     {
@@ -27,14 +33,56 @@ public class Spawner : MonoBehaviour
 
         if (currentTime > nextSpawnTime - NoteSpawnSecondsAheadOfArrivalBeat)
         {
+            int option = Random.Range(0, spawnPos.Count);
             Vector3 position = transform.position - Vector3.back * NoteSpawnDistance;
-            position += new Vector3(0, 1, 0);
 
-            MovingNote note = Instantiate(NotePrefab, position, Quaternion.identity);
-            note.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
+            position += spawnPos[option];
+
+            float doubleNoteProb = Random.Range(0, 1.0f);
+
+            if (doubleNoteProb <= 0.15f)
+            {
+                if (position.x < 0)
+                {
+                    SpawnDoubleNote(NotePrefabL, NotePrefabR, position);
+                }
+                else
+                {
+                    SpawnDoubleNote(NotePrefabR, NotePrefabL, position);
+                }
+                
+
+            }
+            else
+            {
+                if(position.x < 0)
+                {
+                    SpawnSingleNote(NotePrefabL, position);
+                }
+                else
+                {
+                    SpawnSingleNote(NotePrefabR, position);
+                }
+                
+            }
 
             nextSpawnBeat += BeatSpawnInterval;
         }
+    }
+
+    private void SpawnSingleNote(MovingNote singleNote, Vector3 position)
+    {
+        MovingNote note = Instantiate(singleNote, position, Quaternion.identity);
+        note.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
+    }
+
+    private void SpawnDoubleNote(MovingNote noteA, MovingNote noteB, Vector3 position)
+    {
+        MovingNote note = Instantiate(noteA, position, Quaternion.identity);
+        position.x = position.x * -1;
+        MovingNote note2 = Instantiate(noteB, position, Quaternion.identity);
+        note.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
+        note2.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
     }
 
     private float GetCurrentTime()
