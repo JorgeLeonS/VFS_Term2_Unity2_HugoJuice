@@ -13,8 +13,6 @@ public class MovingNote : MonoBehaviour
         yield return new WaitForSeconds(Life);
 
         Destroy(gameObject);
-
-        //scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
     }
 
     private void Update()

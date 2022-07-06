@@ -182,9 +182,12 @@ public class Lighsaber : MonoBehaviour
         Destroy(other.gameObject);
         //_scoreSystem.ScoreCounter++;
 
-        Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
+        Rigidbody rigidbody0 = slices[0].GetComponent<Rigidbody>();
+        Rigidbody rigidbody1 = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
-        rigidbody.AddForce(newNormal, ForceMode.Impulse);
+        Vector3 newNormal2 = transformedNormal + Vector3.up * -_forceAppliedToCut;
+        rigidbody0.AddForce(newNormal, ForceMode.Impulse);
+        rigidbody1.AddForce(newNormal2, ForceMode.Impulse);
 
         foreach (var slice in slices)
         {

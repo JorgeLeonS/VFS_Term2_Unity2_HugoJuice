@@ -17,6 +17,12 @@ public class HapticController : MonoBehaviour
             rightController.SendHapticImpulse(defaultAmplitud, defaultDuration);
         else
             leftController.SendHapticImpulse(defaultAmplitud, defaultDuration);
+    }    public void SendHaptics(bool isRightController, float amp, float duration)
+    {
+        if(isRightController)
+            rightController.SendHapticImpulse(amp, duration);
+        else
+            leftController.SendHapticImpulse(amp, duration);
     }
 
     // Start is called before the first frame update
