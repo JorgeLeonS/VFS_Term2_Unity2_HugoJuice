@@ -20,6 +20,8 @@ namespace Assets.Scripts
             Mesh mesh = objectToCut.GetComponent<MeshFilter>().mesh;
             var a = mesh.GetSubMesh(0);
             Sliceable sliceable = objectToCut.GetComponent<Sliceable>();
+            MovingNote movingNote = objectToCut.GetComponent<MovingNote>();
+            movingNote.AddPoints();
 
             if(sliceable == null)
             {

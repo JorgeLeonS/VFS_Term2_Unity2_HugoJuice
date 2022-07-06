@@ -74,6 +74,7 @@ public class Spawner : MonoBehaviour
     {
         MovingNote note = Instantiate(singleNote, position, Quaternion.identity);
         note.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
+        note.scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
     }
 
     private void SpawnDoubleNote(MovingNote noteA, MovingNote noteB, Vector3 position)
@@ -82,7 +83,9 @@ public class Spawner : MonoBehaviour
         position.x = position.x * -1;
         MovingNote note2 = Instantiate(noteB, position, Quaternion.identity);
         note.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
+        note.scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
         note2.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
+        note2.scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
     }
 
     private float GetCurrentTime()

@@ -48,14 +48,14 @@ public class Lighsaber : MonoBehaviour
     private Vector3 _triggerEnterBasePosition;
     private Vector3 _triggerExitTipPosition;
 
-    private ScoreSystem _scoreSystem;
+
+    //private ScoreSystem _scoreSystem;
 
     [SerializeField]
     private HapticController _hapticController;
 
     void Start()
     {
-        _scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         //Init mesh and triangles
         _meshParent.transform.position = Vector3.zero;
         _mesh = new Mesh();
@@ -180,7 +180,7 @@ public class Lighsaber : MonoBehaviour
     {
         GameObject[] slices = Slicer.Slice(plane, other.gameObject);
         Destroy(other.gameObject);
-        _scoreSystem.ScoreCounter++;
+        //_scoreSystem.ScoreCounter++;
 
         Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
