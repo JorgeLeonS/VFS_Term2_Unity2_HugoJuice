@@ -50,6 +50,9 @@ public class Lighsaber : MonoBehaviour
 
     private ScoreSystem _scoreSystem;
 
+    [SerializeField]
+    private HapticController _hapticController;
+
     void Start()
     {
         _scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
@@ -164,10 +167,12 @@ public class Lighsaber : MonoBehaviour
         if(gameObject.tag == "SlicerR" && other.gameObject.tag == "SliceableR" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
         {
             Slice(plane, other, transformedNormal);
+            _hapticController.SendHaptics(true);
         }
         else if (gameObject.tag == "SlicerL" && other.gameObject.tag == "SliceableL" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
         {
             Slice(plane, other, transformedNormal);
+            _hapticController.SendHaptics(false);
         }
     }
 
