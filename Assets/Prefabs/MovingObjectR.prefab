@@ -130,4 +130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0
-  Life: 10
+  Life: 15
+  scoreSystem: {fileID: 0}

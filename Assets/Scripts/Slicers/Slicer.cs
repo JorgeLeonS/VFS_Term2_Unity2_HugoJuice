@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts
 {
@@ -14,14 +15,29 @@ namespace Assets.Scripts
         /// <param name="plane"></param>
         /// <param name="objectToCut"></param>
         /// <returns></returns>
-        public static GameObject[] Slice(Plane plane, GameObject objectToCut)
+        public static GameObject[] Slice(Plane plane, GameObject objectToCut, bool isMenuFruit = false)
         {            
             //Get the current mesh and its verts and tris
             Mesh mesh = objectToCut.GetComponent<MeshFilter>().mesh;
             var a = mesh.GetSubMesh(0);
             Sliceable sliceable = objectToCut.GetComponent<Sliceable>();
-            MovingNote movingNote = objectToCut.GetComponent<MovingNote>();
-            movingNote.AddPoints();
+
+            if(isMenuFruit)
+            {
+                Debug.Log("Cut Menu Fruit");
+                Debug.Log(objectToCut.name);
+
+                if (objectToCut.TryGetComponent<MenuFruit>(out MenuFruit menuFruit))
+                    menuFruit.GoToScene();
+                else
+                    Debug.Log("Could not find MenuFruit component in " + objectToCut.name);
+            }
+            else
+            {
+                MovingNote movingNote = objectToCut.GetComponent<MovingNote>();
+                movingNote.AddPoints();
+            }
+
 
             if(sliceable == null)
             {

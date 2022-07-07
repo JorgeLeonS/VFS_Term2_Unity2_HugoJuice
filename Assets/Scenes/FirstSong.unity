@@ -607,6 +607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 2078762780}
+  combo: 0
 --- !u!1 &560281360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1599,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1793976557}
     m_Modifications:
+    - target: {fileID: 3093527296902549980, guid: 5728dc81ee1dc3143ab7f0bbd6c632d7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3093527297274796909, guid: 5728dc81ee1dc3143ab7f0bbd6c632d7,
         type: 3}
       propertyPath: m_Name
@@ -1677,12 +1683,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1331419127}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1331419130 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3093527296902549980, guid: 5728dc81ee1dc3143ab7f0bbd6c632d7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1331419127}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1331419131 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3093527298098430208, guid: 5728dc81ee1dc3143ab7f0bbd6c632d7,
@@ -1707,39 +1707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caff514de9b15ad48ab85dcff5508221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1331419133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1331419130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
 --- !u!1 &1487869781
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1774,7 @@ MonoBehaviour:
     type: 3}
   NotePrefabL: {fileID: 1318606667206540036, guid: d83242286e347e349b0b1ff7378ccb6c,
     type: 3}
-  BeatSpawnInterval: 1
+  BeatSpawnInterval: 4
   NoteSpawnDistance: 50
   NoteSpawnSecondsAheadOfArrivalBeat: 4
   nextSpawnBeat: 0

@@ -164,21 +164,35 @@ public class Lighsaber : MonoBehaviour
             plane = plane.flipped;
         }
 
-        if(gameObject.tag == "SlicerR" && other.gameObject.tag == "SliceableR" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
+        if(gameObject.tag == "SlicerR")
         {
-            Slice(plane, other, transformedNormal);
+            if(other.gameObject.tag == "SliceableR" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
+            {
+                Slice(plane, other, transformedNormal);
+            }
+            else if (other.gameObject.tag == "MenuFruit")
+            {
+                Slice(plane, other, transformedNormal, true);
+            }
             _hapticController.SendHaptics(true);
         }
-        else if (gameObject.tag == "SlicerL" && other.gameObject.tag == "SliceableL" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
+        else if (gameObject.tag == "SlicerL")
         {
-            Slice(plane, other, transformedNormal);
+            if(other.gameObject.tag == "SliceableL" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
+            {
+                Slice(plane, other, transformedNormal);
+            }
+            else if (other.gameObject.tag == "MenuFruit")
+            {
+                Slice(plane, other, transformedNormal, true);
+            }
             _hapticController.SendHaptics(false);
         }
     }
 
-    private void Slice(Plane plane, Collider other, Vector3 transformedNormal)
+    private void Slice(Plane plane, Collider other, Vector3 transformedNormal, bool isMenuFruit = false)
     {
-        GameObject[] slices = Slicer.Slice(plane, other.gameObject);
+        GameObject[] slices = Slicer.Slice(plane, other.gameObject, isMenuFruit);
         Destroy(other.gameObject);
         //_scoreSystem.ScoreCounter++;
 

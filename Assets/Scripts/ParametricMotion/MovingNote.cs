@@ -8,6 +8,8 @@ public class MovingNote : MonoBehaviour
 
     public ScoreSystem scoreSystem;
 
+    private bool hasPassedLimit;
+
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(Life);
@@ -18,10 +20,22 @@ public class MovingNote : MonoBehaviour
     private void Update()
     {
         transform.position -= Vector3.forward * Speed * Time.deltaTime;
+        if(transform.position.z <= -4 && !hasPassedLimit)
+        {
+            ResetCombo();
+        }
     }
 
     public void AddPoints()
     {
         scoreSystem.ScoreCounter++;
+        scoreSystem.combo++;
+        Debug.Log("Combo: " + scoreSystem.combo);
+    }
+
+    private void ResetCombo()
+    {
+        scoreSystem.ResetCombo();
+        hasPassedLimit = true;
     }
 }

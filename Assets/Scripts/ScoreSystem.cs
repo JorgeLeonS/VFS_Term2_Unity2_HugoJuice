@@ -8,6 +8,7 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI ScoreText;
     private int scoreCounter;
+    public int combo;
     public int ScoreCounter 
     {
         get { return scoreCounter; }
@@ -26,5 +27,11 @@ public class ScoreSystem : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ResetCombo()
+    {
+        combo = 0;
+        Debug.Log("Combo reseted. Now " + 0);
     }
 }
