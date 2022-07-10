@@ -29,8 +29,8 @@ public class MovingNote : MonoBehaviour
     public void AddPoints()
     {
         scoreSystem.ScoreCounter++;
-        scoreSystem.combo++;
-        Debug.Log("Combo: " + scoreSystem.combo);
+        scoreSystem.Combo++;
+        //Debug.Log("Combo: " + scoreSystem.combo);
     }
 
     private void ResetCombo()
