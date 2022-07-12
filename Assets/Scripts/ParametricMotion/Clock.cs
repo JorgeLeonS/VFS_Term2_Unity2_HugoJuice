@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -5,35 +6,73 @@ using UnityEngine;
 public class Clock : MonoBehaviour
 {
     //public TextMeshProUGUI gameTime, dspTime, beat;
+    private AudioSource audioSource;
     public AudioClip song;
+    private float songDuration;
+
+    private bool hasSongFinished;
 
     public int BPM = 60;
 
-    private float startingGameTime, startingDSPTime, startingOffset;
+    private float startingDSPTime;
 
     private bool running;
 
+    public ProgressBar progressBar;
+    public GameObject scoreSection;
+    public GameObject readySection;
+
+    public static Clock current;
+    public event Action event_songHasFinished;
+    bool hasEventBeenCalled = false;
+
+    private void Awake()
+    {
+        current = this;
+        audioSource = GetComponent<AudioSource>();
+        scoreSection.gameObject.SetActive(false);
+
+        songDuration = song.length - 2.8f;
+    }
+
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitUntil(() => progressBar.HasProgressBarFinished());
+        scoreSection.gameObject.SetActive(true);
+        readySection.gameObject.SetActive(false);
+
+        //yield return new WaitForSeconds(1);
 
         running = true;
 
-        startingGameTime = Time.time;
         startingDSPTime = (float)AudioSettings.dspTime;
 
-        GetComponent<AudioSource>().clip = song;
-        GetComponent<AudioSource>().Play();
+        audioSource.clip = song;
+
+        audioSource.Play();
     }
 
     private void Update()
     {
-        float currentTime = CurrentGameTime();
         float currentDSPTime = CurrentTime();
-
+        if (!hasSongFinished && !hasEventBeenCalled)
+        {
+            HasSongFinished();
+        }
+        else if(hasSongFinished && !hasEventBeenCalled)
+        {
+            event_songHasFinished.Invoke();
+            hasEventBeenCalled = true;
+        }
+        
         //gameTime.text = $"Game: {currentTime:00.00}";
         //dspTime.text = $"DSP: {currentDSPTime:00.00}";
         //beat.text = $"Beat: {CurrentBeat()}";
+    }
+
+    public bool HasSongFinished()
+    {
+        return hasSongFinished = CurrentTime() < songDuration ? false : true;
     }
 
     /// <summary>
@@ -46,14 +85,6 @@ public class Clock : MonoBehaviour
             return 0;
 
         return (float)AudioSettings.dspTime - startingDSPTime;
-    }
-
-    public float CurrentGameTime()
-    {
-        if (!running)
-            return 0;
-
-        return Time.time - startingGameTime + startingOffset;
     }
 
     public int CurrentBeat()

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MovingNote : MonoBehaviour
 {
+    public bool isABadThing;
+
     public float Speed;
     public float Life = 1;
 
@@ -20,7 +22,7 @@ public class MovingNote : MonoBehaviour
     private void Update()
     {
         transform.position -= Vector3.forward * Speed * Time.deltaTime;
-        if(transform.position.z <= -4 && !hasPassedLimit)
+        if(transform.position.z <= -4 && !hasPassedLimit && !isABadThing)
         {
             ResetCombo();
         }
@@ -28,9 +30,16 @@ public class MovingNote : MonoBehaviour
 
     public void AddPoints()
     {
-        scoreSystem.ScoreCounter++;
-        scoreSystem.Combo++;
-        //Debug.Log("Combo: " + scoreSystem.combo);
+        if (isABadThing)
+        {
+            ResetCombo();
+        }
+        else
+        {
+            scoreSystem.ScoreCounter++;
+            scoreSystem.Combo++;
+            //Debug.Log("Combo: " + scoreSystem.combo);
+        }
     }
 
     private void ResetCombo()
