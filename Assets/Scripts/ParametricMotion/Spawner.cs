@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        nextSpawnBeat = BeatSpawnInterval;
+        nextSpawnBeat = BeatSpawnInterval - 1;
         float TotalBeats = Clock.songDuration * Clock.BPM;
         float ArrivalMinutes = NoteSpawnSecondsAheadOfArrivalBeat / 60;
         float ArrivalBeats = ArrivalMinutes * Clock.BPM;
