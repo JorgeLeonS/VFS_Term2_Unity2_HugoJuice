@@ -192,8 +192,24 @@ public class Lighsaber : MonoBehaviour
 
     private void Slice(Plane plane, Collider other, Vector3 transformedNormal, bool isMenuFruit = false)
     {
+        try
+        {
+            ParticleSystem ps = other.gameObject.GetComponent<Sliceable>().CutEffect;
+            Vector3 lastPosition = other.gameObject.transform.position;
+            ParticleSystem insPS = Instantiate(ps, lastPosition, Quaternion.identity);
+            insPS.Play();
+            Destroy(insPS.gameObject, 0.8f);
+        }
+        catch (System.Exception)
+        {
+            print("Could not instantiate juice Effect");
+            throw;
+        }
+
         GameObject[] slices = Slicer.Slice(plane, other.gameObject, isMenuFruit);
+        
         Destroy(other.gameObject);
+        
         //_scoreSystem.ScoreCounter++;
 
         Rigidbody rigidbody0 = slices[0].GetComponent<Rigidbody>();

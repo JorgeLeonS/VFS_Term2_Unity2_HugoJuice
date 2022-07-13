@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74b9b79e7d79c048a3f5f2f0e37119d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CutEffect: {fileID: 2315654193981926926, guid: adbb5ce7360d67145a8b099cdfeb40ed,
+    type: 3}
   _isSolid: 1
   _reverseWindTriangles: 0
   _useGravity: 1
@@ -129,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec5cb40e8111da48aa9cd62b205cf41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isABadThing: 0
   Speed: 0
   Life: 15
   scoreSystem: {fileID: 0}

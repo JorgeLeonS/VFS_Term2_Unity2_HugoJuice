@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreSystem : MonoBehaviour
@@ -62,7 +63,10 @@ public class ScoreSystem : MonoBehaviour
 
     public void SaveScore()
     {
-        loadScore.CheckIfNewHighScore(ScoreCounter);
+        if(SceneManager.GetActiveScene().name == "FirstSong")
+            loadScore.Song1CheckIfNewHighScore(ScoreCounter);
+        if (SceneManager.GetActiveScene().name == "SecondSong")
+            loadScore.Song2CheckIfNewHighScore(ScoreCounter);
     }
 
     public int ScoreCounter 
