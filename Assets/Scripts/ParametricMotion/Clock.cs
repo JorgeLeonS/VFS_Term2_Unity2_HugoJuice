@@ -8,7 +8,9 @@ public class Clock : MonoBehaviour
     //public TextMeshProUGUI gameTime, dspTime, beat;
     private AudioSource audioSource;
     public AudioClip song;
-    private float songDuration;
+    public float songDuration;
+
+    public float TimeForFinishingSong = 2.8f;
 
     private bool hasSongFinished;
 
@@ -32,12 +34,15 @@ public class Clock : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         scoreSection.gameObject.SetActive(false);
 
-        songDuration = song.length - 2.8f;
+        //songDuration = song.length - TimeForFinishingSong;
+        songDuration = song.length;
+
     }
 
     private IEnumerator Start()
     {
-        yield return new WaitUntil(() => progressBar.HasProgressBarFinished());
+        //yield return new WaitUntil(() => progressBar.HasProgressBarFinished());
+        yield return new WaitForSeconds(1f);
         scoreSection.gameObject.SetActive(true);
         readySection.gameObject.SetActive(false);
 
@@ -61,6 +66,7 @@ public class Clock : MonoBehaviour
         }
         else if(hasSongFinished && !hasEventBeenCalled)
         {
+            print("Song finished on clock!");
             event_songHasFinished.Invoke();
             hasEventBeenCalled = true;
         }

@@ -7,22 +7,27 @@ using UnityEngine.UI;
 public class ScoreSystem : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI ScoreText;
+    private TextMeshProUGUI ScoreNum, ScoreTxt;
     [SerializeField]
     private TextMeshProUGUI comboText;
     [SerializeField]
-    private TMP_InputField nameInput;
-    [SerializeField]
-    private Button doneButton;
+    private GameObject MenuMango;
     private int scoreCounter;
     public int combo;
+
+    private SceneController sceneController;
+    private LoadScore loadScore;
+
+    private Vector3 ScoreNumFinishPosition = new Vector3(-50, -180, -1000);
+    private Vector3 ScoreTxtFinishPosition = new Vector3(-41, -130, -1000);
 
     //UnityEvent songHasFinished;
 
     private void Awake()
     {
-        //nameInput.gameObject.SetActive(false);
-        //doneButton.gameObject.SetActive(false);
+        sceneController = FindObjectOfType<SceneController>();
+        loadScore = FindObjectOfType<LoadScore>();
+        MenuMango.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -48,21 +53,16 @@ public class ScoreSystem : MonoBehaviour
 
     private IEnumerator Cor_LevelFinished()
     {
-        yield return new WaitForSeconds(3f);
-        doneButton.gameObject.SetActive(true);
-        nameInput.gameObject.SetActive(true);
-    }
-
-    public void OpenKeyboard()
-    {
-        print("Open this shit");
-        TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
-        print("Open this shit2");
+        yield return new WaitForSeconds(5f);
+        MenuMango.gameObject.SetActive(true);
+        ScoreNum.gameObject.transform.localPosition = ScoreNumFinishPosition;
+        ScoreTxt.gameObject.transform.localPosition = ScoreTxtFinishPosition;
+        SaveScore();
     }
 
     public void SaveScore()
     {
-        Debug.Log($"{nameInput.text} score: {ScoreCounter}");
+        loadScore.CheckIfNewHighScore(ScoreCounter);
     }
 
     public int ScoreCounter 
@@ -71,7 +71,7 @@ public class ScoreSystem : MonoBehaviour
         set 
         { 
             scoreCounter = value;
-            ScoreText.text = $"{value}";
+            ScoreNum.text = $"{value}";
         }
     }
 

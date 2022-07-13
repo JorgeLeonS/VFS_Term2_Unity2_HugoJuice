@@ -1653,6 +1653,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4179850706305055221, guid: 5728dc81ee1dc3143ab7f0bbd6c632d7,
+        type: 3}
+      propertyPath: m_KeepSelectedTargetValid
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179850706305055221, guid: 5728dc81ee1dc3143ab7f0bbd6c632d7,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4179850706305055221, guid: 5728dc81ee1dc3143ab7f0bbd6c632d7,
+        type: 3}
+      propertyPath: m_InteractionLayerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5789158429721737020, guid: 5728dc81ee1dc3143ab7f0bbd6c632d7,
         type: 3}
       propertyPath: m_Controller
