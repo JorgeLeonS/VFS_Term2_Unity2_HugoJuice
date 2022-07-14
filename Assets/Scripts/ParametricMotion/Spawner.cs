@@ -3,12 +3,11 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public enum TimeType { Game, DSP }
-
-    public TimeType UseTimeType;
     public Clock Clock;
     public MovingNote NotePrefabR;
     public MovingNote NotePrefabL;
+
+    public MovingNote NotePrefabBad;
 
     public int BeatSpawnInterval;
 
@@ -24,38 +23,57 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         nextSpawnBeat = BeatSpawnInterval - 1;
+        float TotalBeats = Clock.songDuration * Clock.BPM;
+        float ArrivalMinutes = NoteSpawnSecondsAheadOfArrivalBeat / 60;
+        float ArrivalBeats = ArrivalMinutes * Clock.BPM;
+        int LastSpawningBeat = (int)(Clock.BPM - ArrivalBeats);
     }
 
     private void Update()
     {
         float nextSpawnTime = (60f / Clock.BPM) * nextSpawnBeat;
-        float currentTime = GetCurrentTime();
-
-        if (currentTime > nextSpawnTime - NoteSpawnSecondsAheadOfArrivalBeat)
+        float currentTime = Clock.CurrentTime();
+        if (!Clock.HasSongFinished())
         {
-            int option = Random.Range(0, spawnPos.Count);
-            Vector3 position = transform.position - Vector3.back * NoteSpawnDistance;
-
-            position += spawnPos[option];
-
-            float doubleNoteProb = Random.Range(0, 1.0f);
-
-            if (doubleNoteProb <= 0.15f)
+            if (currentTime > nextSpawnTime - NoteSpawnSecondsAheadOfArrivalBeat)
             {
-                if (position.x < 0)
-                {
-                    SpawnDoubleNote(NotePrefabL, NotePrefabR, position);
-                }
-                else
-                {
-                    SpawnDoubleNote(NotePrefabR, NotePrefabL, position);
-                }
-                
+                int option = Random.Range(0, spawnPos.Count);
+                Vector3 position = transform.position - Vector3.back * NoteSpawnDistance;
 
+                position += spawnPos[option];
+
+                DecideNoteToSpawn(position);
+
+                nextSpawnBeat += BeatSpawnInterval;
+            }
+        }
+    }
+
+    private void DecideNoteToSpawn(Vector3 position)
+    {
+        float doubleNoteProb = Random.Range(0, 1.0f);
+
+        if (doubleNoteProb <= 0.15f)
+        {
+            if (position.x < 0)
+            {
+                SpawnDoubleNote(NotePrefabL, NotePrefabR, position);
             }
             else
             {
-                if(position.x < 0)
+                SpawnDoubleNote(NotePrefabR, NotePrefabL, position);
+            }
+        }
+        else
+        {
+            float badNoteProb = Random.Range(0, 1.0f);
+            if (badNoteProb <= 0.10f)
+            {
+                SpawnSingleNote(NotePrefabBad, position);
+            }
+            else
+            {
+                if (position.x < 0)
                 {
                     SpawnSingleNote(NotePrefabL, position);
                 }
@@ -63,10 +81,9 @@ public class Spawner : MonoBehaviour
                 {
                     SpawnSingleNote(NotePrefabR, position);
                 }
-                
             }
+            
 
-            nextSpawnBeat += BeatSpawnInterval;
         }
     }
 
@@ -74,6 +91,7 @@ public class Spawner : MonoBehaviour
     {
         MovingNote note = Instantiate(singleNote, position, Quaternion.identity);
         note.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
+        note.scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
     }
 
     private void SpawnDoubleNote(MovingNote noteA, MovingNote noteB, Vector3 position)
@@ -82,14 +100,8 @@ public class Spawner : MonoBehaviour
         position.x = position.x * -1;
         MovingNote note2 = Instantiate(noteB, position, Quaternion.identity);
         note.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
+        note.scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
         note2.Speed = NoteSpawnDistance / NoteSpawnSecondsAheadOfArrivalBeat;
-    }
-
-    private float GetCurrentTime()
-    {
-        if (UseTimeType == TimeType.Game)
-            return Clock.CurrentGameTime();
-        else
-            return Clock.CurrentTime();
+        note2.scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
     }
 }

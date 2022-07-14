@@ -65,7 +65,12 @@ PrefabInstance:
     - target: {fileID: 3134864594832506767, guid: f4f864470abc0c04e92a4ef8af06fa87,
         type: 3}
       propertyPath: m_Name
-      value: XR Origin
+      value: XR Origin Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 5852450778685166558, guid: f4f864470abc0c04e92a4ef8af06fa87,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5f247dd02cad2634c971dc0a7110f742, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4f864470abc0c04e92a4ef8af06fa87, type: 3}

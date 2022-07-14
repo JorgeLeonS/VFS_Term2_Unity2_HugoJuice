@@ -48,11 +48,14 @@ public class Lighsaber : MonoBehaviour
     private Vector3 _triggerEnterBasePosition;
     private Vector3 _triggerExitTipPosition;
 
-    private ScoreSystem _scoreSystem;
+
+    //private ScoreSystem _scoreSystem;
+
+    [SerializeField]
+    private HapticController _hapticController;
 
     void Start()
     {
-        _scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
         //Init mesh and triangles
         _meshParent.transform.position = Vector3.zero;
         _mesh = new Mesh();
@@ -161,25 +164,60 @@ public class Lighsaber : MonoBehaviour
             plane = plane.flipped;
         }
 
-        if(gameObject.tag == "SlicerR" && other.gameObject.tag == "SliceableR" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
+        if(gameObject.tag == "SlicerR")
         {
-            Slice(plane, other, transformedNormal);
+            if(other.gameObject.tag == "SliceableR" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
+            {
+                Slice(plane, other, transformedNormal);
+            }
+            else if (other.gameObject.tag == "MenuFruit")
+            {
+                Slice(plane, other, transformedNormal, true);
+            }
+            _hapticController.SendHaptics(true);
         }
-        else if (gameObject.tag == "SlicerL" && other.gameObject.tag == "SliceableL" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
+        else if (gameObject.tag == "SlicerL")
         {
-            Slice(plane, other, transformedNormal);
+            if(other.gameObject.tag == "SliceableL" && (other.transform.position.z <= 1 || other.transform.position.z >= -1))
+            {
+                Slice(plane, other, transformedNormal);
+            }
+            else if (other.gameObject.tag == "MenuFruit")
+            {
+                Slice(plane, other, transformedNormal, true);
+            }
+            _hapticController.SendHaptics(false);
         }
     }
 
-    private void Slice(Plane plane, Collider other, Vector3 transformedNormal)
+    private void Slice(Plane plane, Collider other, Vector3 transformedNormal, bool isMenuFruit = false)
     {
-        GameObject[] slices = Slicer.Slice(plane, other.gameObject);
-        Destroy(other.gameObject);
-        _scoreSystem.ScoreCounter++;
+        try
+        {
+            ParticleSystem ps = other.gameObject.GetComponent<Sliceable>().CutEffect;
+            Vector3 lastPosition = other.gameObject.transform.position;
+            ParticleSystem insPS = Instantiate(ps, lastPosition, Quaternion.identity);
+            insPS.Play();
+            Destroy(insPS.gameObject, 0.8f);
+        }
+        catch (System.Exception)
+        {
+            print("Could not instantiate juice Effect");
+            throw;
+        }
 
-        Rigidbody rigidbody = slices[1].GetComponent<Rigidbody>();
+        GameObject[] slices = Slicer.Slice(plane, other.gameObject, isMenuFruit);
+        
+        Destroy(other.gameObject);
+        
+        //_scoreSystem.ScoreCounter++;
+
+        Rigidbody rigidbody0 = slices[0].GetComponent<Rigidbody>();
+        Rigidbody rigidbody1 = slices[1].GetComponent<Rigidbody>();
         Vector3 newNormal = transformedNormal + Vector3.up * _forceAppliedToCut;
-        rigidbody.AddForce(newNormal, ForceMode.Impulse);
+        Vector3 newNormal2 = transformedNormal + Vector3.up * -_forceAppliedToCut;
+        rigidbody0.AddForce(newNormal, ForceMode.Impulse);
+        rigidbody1.AddForce(newNormal2, ForceMode.Impulse);
 
         foreach (var slice in slices)
         {

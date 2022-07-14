@@ -7,6 +7,9 @@ using UnityEngine;
 public class Sliceable : MonoBehaviour
 {
     [SerializeField]
+    public ParticleSystem CutEffect;
+
+    [SerializeField]
     private bool _isSolid = true;
 
     [SerializeField]

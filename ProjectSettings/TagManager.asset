@@ -10,6 +10,7 @@ TagManager:
   - SliceableR
   - SlicerL
   - SlicerR
+  - MenuFruit
   layers:
   - Default
   - TransparentFX
