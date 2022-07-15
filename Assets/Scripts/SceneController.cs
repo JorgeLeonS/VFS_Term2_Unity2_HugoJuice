@@ -29,6 +29,11 @@ public class SceneController : MonoBehaviour
         StartCoroutine("LoadMainMenu", transitionTime);
     }
 
+    public void RestartLevel(float transitionTime)
+    {
+        StartCoroutine("ReloadLevel", transitionTime);
+    }
+
     IEnumerator LoadLevel(object[] parms)
     {
         string scene = (string)parms[0];
@@ -49,5 +54,15 @@ public class SceneController : MonoBehaviour
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene("MainMenu");
+    }
+
+    IEnumerator ReloadLevel(float transitionTime)
+    {
+        Debug.Log("Reloading scene");
+        Time.timeScale = 1;
+
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(transitionTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

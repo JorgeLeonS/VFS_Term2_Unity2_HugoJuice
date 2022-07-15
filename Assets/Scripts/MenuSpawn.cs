@@ -7,6 +7,7 @@ public class MenuSpawn : MonoBehaviour
 {
     [SerializeField] InputActionAsset playerControls;
     [SerializeField] GameObject handMenu;
+    [SerializeField] Clock clock;
     bool showMenu = false;
     InputAction displayMenu;
 
@@ -31,19 +32,21 @@ public class MenuSpawn : MonoBehaviour
         showMenu = !showMenu;
         if (showMenu)
         {
-            Resume();
+            PauseLevel();
         }
         else
-            Pause();
+            Resume();
+    }
+
+    public void PauseLevel()
+    {
+        Time.timeScale = 0;
+        clock.pauseSong();
     }
 
     public void Resume()
     {
-        Time.timeScale = 0;
-    }
-
-    public void Pause()
-    {
         Time.timeScale = 1;
+        clock.continueSong();
     }
 }
