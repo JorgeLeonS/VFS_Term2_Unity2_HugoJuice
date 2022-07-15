@@ -97,4 +97,14 @@ public class Clock : MonoBehaviour
     {
         return Mathf.FloorToInt(CurrentTime() / (BPM / 60f)) + 1;
     }
+
+    public void pauseSong()
+    {
+        audioSource.Pause();
+    }
+
+    public void continueSong()
+    {
+        audioSource.UnPause();
+    }
 }
