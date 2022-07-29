@@ -303,6 +303,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5997926754152409803, guid: 99f3f6b64812fe34dabedcf2e4001741,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997926754152409803, guid: 99f3f6b64812fe34dabedcf2e4001741,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997926754152409803, guid: 99f3f6b64812fe34dabedcf2e4001741,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997926754152409803, guid: 99f3f6b64812fe34dabedcf2e4001741,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997926754152409803, guid: 99f3f6b64812fe34dabedcf2e4001741,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5997926754152409803, guid: 99f3f6b64812fe34dabedcf2e4001741,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6316581857367108669, guid: 99f3f6b64812fe34dabedcf2e4001741,
         type: 3}
       propertyPath: m_RootOrder
@@ -6101,10 +6131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6720bfea04570144693ba2f0a0d2b7d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  song: {fileID: 8300000, guid: 2dfe15695a28783449c65f8f0407d535, type: 3}
+  song: {fileID: 8300000, guid: 7c32e6af8dbee6c4db163e4009dbde89, type: 3}
   songDuration: 0
   TimeForFinishingSong: 2.8
-  BPM: 60
+  BPM: 129
   progressBar: {fileID: 2063921237}
   scoreSection: {fileID: 1021842345}
   readySection: {fileID: 585372912}
