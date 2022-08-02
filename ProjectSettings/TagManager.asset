@@ -11,6 +11,8 @@ TagManager:
   - SlicerL
   - SlicerR
   - MenuFruit
+  - LeftObjective
+  - RightObjective
   layers:
   - Default
   - TransparentFX
