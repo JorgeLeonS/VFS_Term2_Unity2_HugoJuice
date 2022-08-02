@@ -2026,3 +2026,4 @@ MonoBehaviour:
   playerControls: {fileID: -944628639613478452, guid: f0ed3719ae25f3b418f8488488e3aa0f,
     type: 3}
   handMenu: {fileID: 6947291508582887652}
+  clock: {fileID: 0}

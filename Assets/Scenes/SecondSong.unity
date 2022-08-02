@@ -228,6 +228,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1793976557}
     m_Modifications:
+    - target: {fileID: 1864050804, guid: 99f3f6b64812fe34dabedcf2e4001741, type: 3}
+      propertyPath: clock
+      value: 
+      objectReference: {fileID: 867520340}
     - target: {fileID: 843985616994395515, guid: 99f3f6b64812fe34dabedcf2e4001741,
         type: 3}
       propertyPath: _hapticController
@@ -7170,11 +7174,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c962a77c4d25f48a035e517c046573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabsToSpawn: []
-  timeStart: 0
-  frequency: 0
-  moveRight: 0
-  moveLeft: 0
+  Clock: {fileID: 867520340}
+  NotePrefabR: {fileID: 1318606667206540036, guid: f18848de576f6e846a3057ca13a7181d,
+    type: 3}
+  NotePrefabL: {fileID: 1318606667206540036, guid: d83242286e347e349b0b1ff7378ccb6c,
+    type: 3}
+  NotePrefabBad: {fileID: 1318606667206540036, guid: 70650dc1d8967f843bd48940e15fc3fe,
+    type: 3}
+  BeatSpawnInterval: 1
+  NoteSpawnDistance: 10
+  NoteSpawnSecondsAheadOfArrivalBeat: 1
+  nextSpawnBeat: 0
+  spawnPos:
+  - {x: 0.2, y: 1, z: 0}
+  - {x: -0.2, y: 1, z: 0}
+  - {x: 0.5, y: 1.5, z: 0}
+  - {x: -0.5, y: 1.5, z: 0}
+  - {x: 0.2, y: 2, z: 0}
+  - {x: -0.2, y: 2, z: 0}
 --- !u!4 &1623832222
 Transform:
   m_ObjectHideFlags: 0
