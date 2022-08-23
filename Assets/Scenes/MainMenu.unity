@@ -512,8 +512,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4285102107
+  m_fontColor: {r: 0.104574576, g: 0.4716981, b: 0.4135207, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1709,8 +1709,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4291667161
+  m_fontColor: {r: 0.8490566, g: 0.6448024, b: 0.8056246, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1924,7 +1924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.06742263, g: 0.052064802, b: 0.2830189, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2018,8 +2018,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4285102107
+  m_fontColor: {r: 0.104574576, g: 0.4716981, b: 0.4135207, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2086,6 +2086,110 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038623527}
   m_CullTransparentMesh: 1
+--- !u!1001 &1063355877
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.419
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.556
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075114, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420025914075115, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_Name
+      value: Spectator Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420027143168552, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420027143168565, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9842574
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420027143168565, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420027143168565, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.17674121
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420027143168565, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420027143168565, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 20.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808420027143168566, guid: d5448c1df03bf6842b1e1d30b88ce92d,
+        type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5448c1df03bf6842b1e1d30b88ce92d, type: 3}
 --- !u!1 &1066666963
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,8 +3004,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4285102107
+  m_fontColor: {r: 0.104574576, g: 0.4716981, b: 0.4135207, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3035,8 +3139,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4285102107
+  m_fontColor: {r: 0.104574576, g: 0.4716981, b: 0.4135207, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3352,8 +3456,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4285102107
+  m_fontColor: {r: 0.104574576, g: 0.4716981, b: 0.4135207, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3420,6 +3524,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565276659}
   m_CullTransparentMesh: 1
+--- !u!1001 &1603335911
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1437988229659440713, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_Name
+      value: VRSpectator
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440718, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 813433329331570386}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437988229659440722, guid: 5f98d23311ba9d64faad611cd42d6aee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f98d23311ba9d64faad611cd42d6aee, type: 3}
 --- !u!1 &1681294635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,8 +4087,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4285102107
+  m_fontColor: {r: 0.104574576, g: 0.4716981, b: 0.4135207, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6512,6 +6690,12 @@ PrefabInstance:
 --- !u!4 &813433329331570385 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4784222394559605572, guid: dc8623f26fdab0345b2c8a3c82915417,
+    type: 3}
+  m_PrefabInstance: {fileID: 813433329331570384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &813433329331570386 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4784222396567626228, guid: dc8623f26fdab0345b2c8a3c82915417,
     type: 3}
   m_PrefabInstance: {fileID: 813433329331570384}
   m_PrefabAsset: {fileID: 0}
